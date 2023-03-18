@@ -6,7 +6,7 @@
  * @return {Array} Os nomes dos alunos que fizeram este exercício.
  */
 function nomesDosAlunos() {
-    return [ "João da Silva", "Maria da Silva" ];
+    return [ "Lucas Cristiano Lopes"];
 }
 
 // Implemente as funções abaixo, conforme pede o enunciado.
@@ -48,7 +48,10 @@ function maiorDosDoisSimplificado(a, b) {
  * @return {number} O resultado da operação.
  */
 function maiorDosQuatro(a, b, c, d) {
-    naoFizIssoAinda();
+    if(a >= b && a >= c && a >= d)return a;
+    if(b >= a && b >= c && b >= d)return b;
+    if(c >= a && c >= b && c >= d)return c;
+    else return d;
 }
 
 // EXERCÍCIO 2.
@@ -80,7 +83,30 @@ function maiorDosQuatro(a, b, c, d) {
  * @return {number} O resultado da operação.
  */
 function operacoesBasicas(operacao, numero1, numero2) {
-    naoFizIssoAinda();
+    if(operacao === "A"){
+        return numero1 + numero2;  
+    }
+    if(operacao === "S"){
+        return numero1 - numero2;
+    }
+    if(operacao === "M"){
+        return numero1 * numero2;
+    }
+    if(operacao === "D"){
+        if(numero2 === 0){
+            return NaN;
+        }
+        return numero1 / numero2;
+    }
+    if(operacao === "P"){
+        if(numero1 === 0 && numero2 === 0){
+            return NaN;
+        }
+        if(numero1 === 0 && numero2 === -1){
+            return NaN;
+        }
+        return numero1 ** numero2;
+    }
 }
 
 // EXERCÍCIO 3.
@@ -98,10 +124,17 @@ function operacoesBasicas(operacao, numero1, numero2) {
  *
  * @param {*} elemento1 O primeiro operando.
  * @param {*} elemento2 O segundo operando.
- * @return {String} A mensagem com o resultado da comparação.
+ * @returns {String} A mensagem com o resultado da comparação.
  */
 function comparadorBasico(elemento1, elemento2) {
-    naoFizIssoAinda();
+    
+    let tipo1 = determinarTipo(elemento1);
+    let tipo2 = determinarTipo(elemento2);
+    if(elemento1 === elemento2 ){
+        return `Elemento ${elemento1} (${tipo1}) é estritamente igual ao elemento ${elemento2} (${tipo2}).`;
+    }else if(elemento1 == elemento2 ){
+        return `Elemento ${elemento1} (${tipo1}) é equivalente ao elemento ${elemento2} (${tipo2}).`
+    }return `Elemento ${elemento1} (${tipo1}) é diferente do elemento ${elemento2} (${tipo2}).`;
 }
 
 // EXERCÍCIO 4.
