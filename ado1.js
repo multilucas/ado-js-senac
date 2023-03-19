@@ -151,7 +151,9 @@ function comparadorBasico(elemento1, elemento2) {
  * @return {String} String com o primeiro nome apenas.
  */
 function primeiroNome(nomeCompleto) {
-    naoFizIssoAinda();
+    let primeiroNome = nomeCompleto.split(" ");
+    return primeiroNome[0];
+
 }
 
 // EXERCÍCIO 5.
@@ -169,8 +171,15 @@ function primeiroNome(nomeCompleto) {
  * @return {String} String com o primeiro nome conforme dado e o segundo nome abreviado.
  */
 function abreviadorNomes(nomeCompleto) {
-    naoFizIssoAinda();
-}
+  let nomeSplit = nomeCompleto.split(" ");
+  let segundoNome = nomeSplit[1];
+  if(segundoNome == undefined){
+    return nomeSplit[0];
+  }else{
+    let nomeAbrev = nomeSplit[0] + " " + nomeSplit[1].charAt(0) + ".";
+    return nomeAbrev;
+    }
+  }
 
 // EXERCÍCIO 6.
 /**
@@ -192,7 +201,7 @@ function abreviadorNomes(nomeCompleto) {
  * @return {boolean} Verdadeiro se a data for válida, falso em caso contrário.
  */
 function dataValida(data) {
-    naoFizIssoAinda();
+   let dataSplitada = data.split("/");
 }
 
 // EXERCÍCIO 7.
