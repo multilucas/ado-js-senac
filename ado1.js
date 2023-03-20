@@ -200,8 +200,32 @@ function abreviadorNomes(nomeCompleto) {
  * @param {String} data String com a data no formato brasileiro (dia/mês/ano).
  * @return {boolean} Verdadeiro se a data for válida, falso em caso contrário.
  */
-function dataValida(data) {
-   let dataSplitada = data.split("/");
+function dataValida(data){
+  let arrayData = data.trim().split("/");
+  let dia = arrayData[0];
+  let mes = arrayData[1];
+  let ano = arrayData[2];
+  if(dia.length != 2) return false;
+  if(mes.length != 2) return false;
+  if(ano.length != 4) return false;
+  let intDia = parseInt(arrayData[0]);
+  let intMes = parseInt(arrayData[1]);
+  let intAno = parseInt(arrayData[2]);
+  if(intAno <= 0)return false;
+  let n31 = false;
+  if(intMes == 2 || intMes == 4 || intMes == 6 || intMes == 9 || intMes == 11){
+    n31 = true;
+  }
+  if(n31 && intDia == 31)return false;
+  if(intMes == 2 && intDia == 30)return false;
+  if(intAno % 100 == 0 && intAno % 400 != 0) intAno = "nao-bissexto"
+  if(intAno % 4 == 0) intAno = "bissexto";
+  if(intAno == "nao-bissexto" && intMes == 2 && intDia == 29) return false;
+  if(intAno != "bissexto" && intMes == 2 && intDia == 29) return false;
+  if(intMes > 12 || intMes < 1)return false;
+  if(intDia > 31 || intDia < 1)return false;
+     
+    return true;
 }
 
 // EXERCÍCIO 7.
@@ -224,7 +248,23 @@ function dataValida(data) {
  * @return {String} Data no formato "Dia de Nome-do-Mês-por-Extenso de Ano" ou "Data inválida".
  */
 function converteDataParaFormaCompleta(data) {
-    naoFizIssoAinda();
+  if(dataValida(data)){
+    let splitada = data.split("/"); 
+    if(splitada[1] == 1)splitada[1] = "Janeiro"
+    if(splitada[1] == 2)splitada[1] = "Fevereiro"
+    if(splitada[1] == 3)splitada[1] = "Março"
+    if(splitada[1] == 4)splitada[1] = "Abril"
+    if(splitada[1] == 5)splitada[1] = "Maio"
+    if(splitada[1] == 6)splitada[1] = "Junho"
+    if(splitada[1] == 7)splitada[1] = "Julho"
+    if(splitada[1] == 8)splitada[1] = "Agosto"
+    if(splitada[1] == 9)splitada[1] = "Setembro"
+    if(splitada[1] == 10)splitada[1] = "Outubro"
+    if(splitada[1] == 11)splitada[1] = "Novembro"
+    if(splitada[1] == 12)splitada[1] = "Dezembro"
+
+    return `${splitada[0]} de ${splitada[1]} de ${splitada[2]}`
+  }else return "Data inválida";
 }
 
 // EXERCÍCIO 8.
@@ -242,7 +282,16 @@ function converteDataParaFormaCompleta(data) {
  * @return {number} O somatório de valores pares entre os dois números, contando com eles.
  */
 function somadorPares(inicio, fim) {
-    naoFizIssoAinda();
+  let primeiro = parseInt(inicio);
+  let ultimo = parseInt(fim);
+  let acumulaPar = 0;
+  while(primeiro <= ultimo){
+    if(primeiro % 2 == 0){
+      acumulaPar += primeiro;
+      primeiro++;
+    }else primeiro++;
+  }
+  return acumulaPar;
 }
 
 // EXERCÍCIO 9.
