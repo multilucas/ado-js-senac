@@ -302,7 +302,14 @@ function somadorPares(inicio, fim) {
  * @return {number|undefined} O menor valor do vetor ou undefined se o vetor estiver vazio.
  */
 function acharMenor(vetor) {
-    naoFizIssoAinda();
+  
+  if(vetor.length == 0)return undefined;
+  let min = Number.POSITIVE_INFINITY;
+   
+  for(const value of vetor){    
+    min = Math.min(min,value)
+    }return min;
+
 }
 
 // EXERCÍCIO 10.
