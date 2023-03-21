@@ -320,7 +320,13 @@ function acharMenor(vetor) {
  * @return {Array<number>} O vetor contendo apenas números pares do original (ou vazio se não houver nenhum).
  */
 function acharPares(vetor) {
-    naoFizIssoAinda();
+  let pares = [];
+    for(let i = 0;i < vetor.length;i++){
+    if(vetor[i] % 2 == 0){
+      pares.push(vetor[i]);
+    };
+  }
+  return pares;
 }
 
 // EXERCÍCIO 11.
@@ -346,7 +352,13 @@ function acharPares(vetor) {
  * @return {String} Estado do peso da pessoa.
  */
 function calcularImc(pessoa) {
-    naoFizIssoAinda();
+   let imcPessoa = pessoa.peso / pessoa.altura ** 2 ;
+    if(imcPessoa < 18.5) return "Abaixo do peso";
+    if(imcPessoa >= 18.5 && imcPessoa < 25) return "Normal";
+    if(imcPessoa >= 25 && imcPessoa < 30) return "Excesso de peso";
+    if(imcPessoa >= 30 && imcPessoa < 35) return "Obesidade leve (Grau I)";
+    if(imcPessoa >= 35 && imcPessoa < 40) return "Obesidade severa (Grau II)";
+    if(imcPessoa >= 40) return "Obesidade mórbida (Grau III)";
 }
 
 // EXERCÍCIO 12.
