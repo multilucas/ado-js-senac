@@ -371,8 +371,13 @@ function calcularImc(pessoa) {
  * @param {String} frase A frase a ser dividida em palavras.
  * @return {Array<String>} Um array com as palavras da frase.
  */
+
 function obterPalavras(frase) {
-    naoFizIssoAinda();
+  let arrayPalavra = frase.split(" ");
+  arrayPalavra.forEach((element,index) => {
+    arrayPalavra[index] = element.trim();
+  });
+  return arrayPalavra;   
 }
 
 // EXERCÍCIO 13.
@@ -394,7 +399,9 @@ function obterPalavras(frase) {
  * @return {String} O texto resultante da transformação com rot13.
  */
 function rot13(texto) {
-    naoFizIssoAinda();
+  texto.replaceAll('A','N');
+  texto.replaceAll('a','n');
+  return texto;
 }
 
 // EXERCÍCIO 14.
