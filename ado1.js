@@ -373,15 +373,12 @@ function calcularImc(pessoa) {
  */
 
 function obterPalavras(frase) {
-  let arrayPalavra = frase.split(" ");
-  arrayPalavra.forEach((element,index) => {
-    arrayPalavra[index] = element.trim();
-  });
-  return arrayPalavra;   
+  return frase.split(" ").filter(palavra => palavra !== "");
 }
 
 // EXERCÍCIO 13.
 /**
+ * 
  * Implemente uma função que recebe uma string e devolva essa mesma string codificada em Rot13.
  * Veja mais sobre essa forma de codificação em https://pt.wikipedia.org/wiki/ROT13
  * Mas basicamente é trocar A por N, B por O, C por P ... L por Y, M por Z, N por A, O por B, ... Y por L e Z por M.
@@ -399,9 +396,12 @@ function obterPalavras(frase) {
  * @return {String} O texto resultante da transformação com rot13.
  */
 function rot13(texto) {
-  texto.replaceAll('A','N');
-  texto.replaceAll('a','n');
-  return texto;
+    for(let i = 0;i < texto.length();i++){
+        codeOf = texto.charCodeAt(i)
+        if(codeOf >= 97 && codeOf <= 109){
+            codeOf += 13;
+        }
+    }
 }
 
 // EXERCÍCIO 14.
