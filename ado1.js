@@ -396,12 +396,7 @@ function obterPalavras(frase) {
  * @return {String} O texto resultante da transformação com rot13.
  */
 function rot13(texto) {
-    for(let i = 0;i < texto.length();i++){
-        codeOf = texto.charCodeAt(i)
-        if(codeOf >= 97 && codeOf <= 109){
-            codeOf += 13;
-        }
-    }
+   return texto.replace(/[a-z]/gi,letter => String.fromCharCode(letter.charCodeAt(0) + (letter.toLowerCase() <= 'm' ? 13:-13)));
 }
 
 // EXERCÍCIO 14.
@@ -414,7 +409,9 @@ function rot13(texto) {
  * 3. Colocar o resultado no segundo <textarea>.
  */
 function fazerRot13() {
-    naoFizIssoAinda();
+  let inputTextArea = document.getElementById("entra-rot13");
+  let outputTextArea = document.getElementById("sai-rot13");
+  outputTextArea.innerHTML = document.write(rot13(inputTextArea));
 }
 
 // EXERCÍCIO 15.
