@@ -411,7 +411,13 @@ function rot13(texto) {
 function fazerRot13() {
   let inputTextArea = document.getElementById("entra-rot13");
   let outputTextArea = document.getElementById("sai-rot13");
-  outputTextArea.innerHTML = document.write(rot13(inputTextArea));
+  
+  let textOfInput = inputTextArea.value;
+    
+  let textOfOutput = rot13(textOfInput);
+  
+  outputTextArea.value = textOfOutput;
+     
 }
 
 // EXERCÍCIO 15.
