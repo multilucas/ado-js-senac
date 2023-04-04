@@ -435,7 +435,18 @@ function fazerRot13() {
  * @return {String} O tipo de triângulo resultante.
  */
 function tipoTriangulo(a, b, c) {
-    naoFizIssoAinda();
+  if(a >= b+c || b >= a+c || c >= a+b || (a <= 0 || b <= 0 || c <= 0)){
+    return "Não é um triângulo";
+  };
+  if(a == b && a == c){
+    return "Equilátero";
+  };
+  if(a != b && b != c && c != a){
+    return "Escaleno";
+  };
+  if((a == b && a != c) || (a == c && a != b) || (b == c && b != a)){
+    return "Isósceles";
+  };
 }
 
 // EXERCÍCIO 16.
@@ -451,7 +462,10 @@ function tipoTriangulo(a, b, c) {
  * @return {number|undefined} A área do triângulo resultante ou undefined se não formar um triângulo.
  */
 function areaTriangulo(a, b, c) {
-    naoFizIssoAinda();
+  if(tipoTriangulo(a,b,c) == "Não é um triângulo")return undefined;
+  const p = (a+b+c)/2;
+  const area = Math.sqrt(p * ((p - a) * (p - b)*(p - c)));
+  return area;
 }
 
 // EXERCÍCIO 17.
@@ -472,21 +486,29 @@ function areaTriangulo(a, b, c) {
  * Um esqueleto da implementação final já foi deixado pelo professor para ajudar.
  * Dica: Procure ver funções de manipulação de DOM nas partes que faltam (o que está como naoFizIssoAinda()).
  */
+
 function verificarTriangulo() {
     // Comece a mexer no código daqui para baixo.
     let texto1, texto2;
     try {
-        const a = lerNumero(naoFizIssoAinda(), naoFizIssoAinda());
-        const b = lerNumero(naoFizIssoAinda(), "Informe o número B corretamente.");
-        const c = lerNumero(naoFizIssoAinda(), naoFizIssoAinda());
-        texto1 = naoFizIssoAinda(a, b, c);
-        // Fazer algo com o texto2.
+        const a = lerNumero(document.querySelector("#ladoA").value,{erro:"Informe o número A corretamente."});
+        const b = lerNumero(document.querySelector("#ladoB").value,{erro:"Informe o número B corretamente."});
+        const c = lerNumero(document.querySelector("#ladoC").value,{erro:"Informe o número C corretamente."});
+        texto1 = tipoTriangulo(a, b, c);
+      if(texto2 = areaTriangulo(a,b,c) == undefined){
+        texto2 = "";
+    }else{
+      texto2 = areaTriangulo(a,b,c);
+    }
     } catch (e) {
         texto1 = e.message;
-        // Fazer algo aqui.
+        texto2 = "";
     }
-    naoFizIssoAinda();
+  document.getElementById("tipoTriangulo").value = texto1;
+  document.getElementById("areaTriangulo").value = texto2;
 }
+
+
 
 // EXERCÍCIO 18.
 /**
@@ -510,7 +532,10 @@ function verificarTriangulo() {
  * @param {Array<Object>} jogadores Um array com os jogadores que devem receber as cartas.
  */
 function distribuirCartas(baralho, jogadores) {
-    naoFizIssoAinda();
+  for(let i = 0;i < 5;i++){
+    for()
+  }
+
 }
 
 // EXERCÍCIO 19.
