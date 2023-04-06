@@ -531,11 +531,13 @@ function verificarTriangulo() {
  *                                Ao término da função, restarão entre 17 e 42 cartas remanescentes neste array.
  * @param {Array<Object>} jogadores Um array com os jogadores que devem receber as cartas.
  */
-function distribuirCartas(baralho, jogadores) {
-  for(let i = 0;i < 5;i++){
-    for()
-  }
 
+function distribuirCartas(baralho, jogadores) {
+  for(let i = 0; i < 5;i++){
+    for(let j = 0;j < jogadores.length; j++){
+      jogadores[j].cartas.push(baralho.shift()); 
+    }
+  }
 }
 
 // EXERCÍCIO 19.
@@ -548,9 +550,8 @@ function distribuirCartas(baralho, jogadores) {
  * @return {String|undefined} O nome do jogador com o ás de ouros ou undefined se ninguém tiver o ás de ouros.
  */
 function asDeOuros(jogadores) {
-    naoFizIssoAinda();
+   
 }
-
 // EXERCÍCIO 20.
 /**
  * Escreva uma função que recebe um array com 2 a 7 objetos representando jogadores de poker, no mesmo formato
