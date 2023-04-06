@@ -550,7 +550,14 @@ function distribuirCartas(baralho, jogadores) {
  * @return {String|undefined} O nome do jogador com o ás de ouros ou undefined se ninguém tiver o ás de ouros.
  */
 function asDeOuros(jogadores) {
-   
+  let resposta = null;
+  for(let j = 0;j < jogadores.length;j++){
+    for(let i = 0;i < jogadores[j].cartas.length;i++){
+      if(jogadores[j].cartas[i] == "A-♢"){
+         resposta = jogadores[j].nome;
+      }
+    } 
+  } return resposta;
 }
 // EXERCÍCIO 20.
 /**
@@ -563,8 +570,15 @@ function asDeOuros(jogadores) {
  * @return {boolean} Verdadeiro se todos tiverem alguma carta real na mão, falso se algum não tiver.
  */
 function todosTemCartasReais(jogadores) {
-    naoFizIssoAinda();
-}
+  let resposta = false;
+  let valorCarta = jogadores.cartas.split("-");
+  for(let j = 0;j < jogadores.length;j++){
+    for(let i = 0;i < jogadores[j].cartas.length;i++){
+      if(valorCarta[0]== "J" || valorCarta[0] == "Q" || valorCarta[0] == K)resposta = true;
+      }
+    }return resposta;
+  } 
+
 
 // EXERCÍCIO 21.
 /**
